@@ -6,6 +6,10 @@ static const uint8_t INT_PIN = 22;
 // an ICM42605 object with the ICM42605 sensor on SPI bus 0 and chip select pin CS_PIN
 ICM42605 imu(SPI, CS_PIN);
 
+void setImuFlag() {
+    dataReady = true;
+}
+
 volatile bool dataReady = false;
 
 void setup() {
@@ -59,8 +63,4 @@ void loop() {
   Serial.print(imu.gyrZ(),6);
   Serial.print("\t");
   Serial.println(imu.temp(),6);
-}
-
-void setImuFlag() {
-  dataReady = true;
 }

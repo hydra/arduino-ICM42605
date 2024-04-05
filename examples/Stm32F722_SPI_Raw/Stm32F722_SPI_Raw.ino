@@ -12,6 +12,10 @@ static SPIClass spi = SPIClass(MOSI_PIN, MISO_PIN, SCLK_PIN);
 // an ICM42605 object with the ICM42605 sensor on SPI bus 0 and chip select pin CS_PIN
 ICM42605 imu(spi, CS_PIN);
 
+void setImuFlag() {
+    dataReady = true;
+}
+
 volatile bool dataReady = false;
 
 void setup() {
@@ -61,8 +65,4 @@ void loop() {
   Serial.print(imu.getGyroY_count());
   Serial.print("\t");
   Serial.println(imu.getGyroZ_count());
-}
-
-void setImuFlag() {
-  dataReady = true;
 }
