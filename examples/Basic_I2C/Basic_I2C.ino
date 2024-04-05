@@ -1,7 +1,7 @@
-#include "ICM42688.h"
+#include "ICM42605.h"
 
-// an ICM42688 object with the ICM42688 sensor on I2C bus 0 with address 0x68
-ICM42688 IMU(Wire, 0x68);
+// an ICM42605 object with the ICM42605 sensor on I2C bus 0 with address 0x68
+ICM42605 IMU(Wire, 0x68);
 
 void setup() {
   // serial to display data

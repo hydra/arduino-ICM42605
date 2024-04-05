@@ -1,9 +1,9 @@
-#ifndef ICM42688_REGISTERS_H_
-#define ICM42688_REGISTERS_H_
+#ifndef ICM42605_REGISTERS_H_
+#define ICM42605_REGISTERS_H_
 
 #include <stdint.h>
 
-namespace ICM42688reg {
+namespace ICM42605reg {
 
   // Accesible from all user banks
   static constexpr uint8_t REG_BANK_SEL = 0x76;
@@ -54,7 +54,7 @@ namespace ICM42688reg {
   static constexpr uint8_t UB0_REG_ACCEL_CONFIG0 = 0x50;
   static constexpr uint8_t UB0_REG_GYRO_CONFIG1 = 0x51;
   static constexpr uint8_t UB0_REG_GYRO_ACCEL_CONFIG0 = 0x52;
-  static constexpr uint8_t UB0_REG_ACCEFL_CONFIG1 = 0x53;
+  static constexpr uint8_t UB0_REG_ACCEL_CONFIG1 = 0x53;
   static constexpr uint8_t UB0_REG_TMST_CONFIG = 0x54;
   // break
   static constexpr uint8_t UB0_REG_APEX_CONFIG0 = 0x56;
@@ -145,6 +145,6 @@ namespace ICM42688reg {
   static constexpr uint8_t UB4_REG_OFFSET_USER7 = 0x7E;
   static constexpr uint8_t UB4_REG_OFFSET_USER8 = 0x7F;
 
-} // ns ICM42688reg
+} // ns ICM42605reg
 
-#endif // ICM42688_REGISTERS_H_
+#endif // ICM42605_REGISTERS_H_

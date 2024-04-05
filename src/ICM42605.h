@@ -1,11 +1,11 @@
-#ifndef ICM42688_H
-#define ICM42688_H
+#ifndef ICM42605_H
+#define ICM42605_H
 
 #include "Arduino.h"
 #include "Wire.h"    // I2C library
 #include "SPI.h"     // SPI library
 
-class ICM42688
+class ICM42605
 {
   public:
 
@@ -49,9 +49,9 @@ class ICM42688
      * @brief      Constructor for I2C communication
      *
      * @param      bus      I2C bus
-     * @param[in]  address  Address of ICM 42688-p device
+     * @param[in]  address  Address of ICM 42605-p device
      */
-    ICM42688(TwoWire &bus, uint8_t address);
+    ICM42605(TwoWire &bus, uint8_t address);
 
     /**
      * @brief      Constructor for SPI communication
@@ -59,7 +59,7 @@ class ICM42688
      * @param      bus    SPI bus
      * @param[in]  csPin  Chip Select pin
      */
-    ICM42688(SPIClass &bus, uint8_t csPin, uint32_t SPI_HS_CLK=8000000);
+    ICM42605(SPIClass &bus, uint8_t csPin, uint32_t SPI_HS_CLK=8000000);
 
     /**
      * @brief      Initialize the device.
@@ -124,7 +124,7 @@ class ICM42688
     int disableDataReadyInterrupt();
 
     /**
-     * @brief      Transfers data from ICM 42688-p to microcontroller.
+     * @brief      Transfers data from ICM 42605-p to microcontroller.
      *             Must be called to access new measurements.
      *
      * @return     ret < 0 if error
@@ -225,7 +225,7 @@ class ICM42688
     float _gyrB[3] = {};
 
     ///\brief Constants
-    static constexpr uint8_t WHO_AM_I = 0x47; ///< expected value in UB0_REG_WHO_AM_I reg
+    static constexpr uint8_t WHO_AM_I = 0x42; ///< expected value in UB0_REG_WHO_AM_I reg
     static constexpr int NUM_CALIB_SAMPLES = 1000; ///< for gyro/accel bias calib
 
     ///\brief Conversion formula to get temperature in Celsius (Sec 4.13)
@@ -271,9 +271,9 @@ class ICM42688
     uint8_t whoAmI();
 };
 
-class ICM42688_FIFO: public ICM42688 {
+class ICM42605_FIFO: public ICM42605 {
   public:
-    using ICM42688::ICM42688;
+    using ICM42605::ICM42605;
     int enableFifo(bool accel,bool gyro,bool temp);
     int readFifo();
     void getFifoAccelX_mss(size_t *size,float* data);
@@ -302,4 +302,4 @@ class ICM42688_FIFO: public ICM42688 {
     size_t _tSize = 0;
 };
 
-#endif // ICM42688_H
+#endif // ICM42605_H

@@ -1,4 +1,4 @@
-#include "ICM42688.h"
+#include "ICM42605.h"
 
 static const uint8_t CS_PIN = PA4;
 static const uint8_t INT_PIN = PC4;
@@ -9,8 +9,8 @@ static const uint8_t SCLK_PIN = PA5;
 
 static SPIClass spi = SPIClass(MOSI_PIN, MISO_PIN, SCLK_PIN);
 
-// an ICM42688 object with the ICM42688 sensor on SPI bus 0 and chip select pin CS_PIN
-ICM42688 imu(spi, CS_PIN);
+// an ICM42605 object with the ICM42605 sensor on SPI bus 0 and chip select pin CS_PIN
+ICM42605 imu(spi, CS_PIN);
 
 volatile bool dataReady = false;
 
@@ -34,8 +34,8 @@ void setup() {
   attachInterrupt(INT_PIN, setImuFlag, RISING);
 
   // set output data rate
-  imu.setAccelODR(ICM42688::odr8k);
-  imu.setGyroODR(ICM42688::odr8k);
+  imu.setAccelODR(ICM42605::odr8k);
+  imu.setGyroODR(ICM42605::odr8k);
 
   // enabling the data ready interrupt
   imu.enableDataReadyInterrupt(); 

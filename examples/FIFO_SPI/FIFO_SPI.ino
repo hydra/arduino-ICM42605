@@ -1,8 +1,8 @@
-#include "ICM42688.h"
-// TODO: Need to test this with the ICM42688
+#include "ICM42605.h"
+// TODO: Need to test this with the ICM42605
 
-// an ICM42688 object with the ICM42688 sensor on SPI bus 0 and chip select pin 10
-ICM42688_FIFO IMU(SPI,10);
+// an ICM42605 object with the ICM42605 sensor on SPI bus 0 and chip select pin 10
+ICM42605_FIFO IMU(SPI,10);
 int status;
 
 // variables to hold FIFO data, these need to be large enough to hold the data
@@ -24,7 +24,7 @@ void setup() {
     while(1) {}
   }
   // setting DLPF bandwidth to 20 Hz
-  IMU.setDlpfBandwidth(ICM42688::DLPF_BANDWIDTH_21HZ);
+  IMU.setDlpfBandwidth(ICM42605::DLPF_BANDWIDTH_21HZ);
   // setting SRD to 19 for a 50 Hz update rate
   IMU.setSrd(19);
   // enabling the FIFO to record just the accelerometers

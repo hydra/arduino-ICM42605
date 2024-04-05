@@ -1,7 +1,7 @@
-#include "ICM42688.h"
+#include "ICM42605.h"
 
-// an ICM42688 object with the ICM42688 sensor on SPI bus 0 and chip select pin 10
-ICM42688 IMU(SPI, 10);
+// an ICM42605 object with the ICM42605 sensor on SPI bus 0 and chip select pin 10
+ICM42605 IMU(SPI, 10);
 
 void setup() {
   // serial to display data

@@ -1,7 +1,7 @@
-#include "ICM42688.h"
+#include "ICM42605.h"
 
-// an ICM42688 object with the ICM42688 sensor on I2C bus 0 with address 0x68
-ICM42688 IMU(Wire, 0x68);
+// an ICM42605 object with the ICM42605 sensor on I2C bus 0 with address 0x68
+ICM42605 IMU(Wire, 0x68);
 
 void setup() {
   // serial to display data
@@ -19,13 +19,13 @@ void setup() {
   }
 
   // setting the accelerometer full scale range to +/-8G
-  imu.setAccelFS(ICM42688::gpm8);
+  imu.setAccelFS(ICM42605::gpm8);
   // setting the gyroscope full scale range to +/-500 deg/s
-  imu.setGyroFS(ICM42688::dps500);
+  imu.setGyroFS(ICM42605::dps500);
   
   // set output data rate to 12.5 Hz
-  imu.setAccelODR(ICM42688::odr12_5);
-  imu.setGyroODR(ICM42688::odr12_5);
+  imu.setAccelODR(ICM42605::odr12_5);
+  imu.setGyroODR(ICM42605::odr12_5);
 
   Serial.println("ax,ay,az,gx,gy,gz,temp_C");
 }
